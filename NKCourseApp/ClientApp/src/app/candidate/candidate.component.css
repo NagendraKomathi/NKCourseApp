@@ -1,0 +1,26 @@
+#ifLogin {
+  margin-left: 100px;
+  font-family: Verdana, sans-serif;
+  font-size: 8px;
+  font-weight: 100;
+  text-align: justify;
+}
+/*
+.heading {
+  color: #336BFF;
+  font-family: math;
+}*/
+
+/*.row {
+  padding-top: 2rem
+}*/
+/*.heading {
+  color: #525340;
+}
+.card {
+  background-color: #c7e4f4;
+}*/
+/*.btn-primary {
+  background-color: #525340;
+  border: #dcddc4;
+}*/

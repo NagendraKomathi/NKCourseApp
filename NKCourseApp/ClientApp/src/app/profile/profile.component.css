@@ -1,0 +1,66 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: inherit;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.mobile-display {
+  display: none;
+  border:none;
+}
+
+.desktop-display {
+  display: block;
+  border: none;
+}
+.container-desktop {
+  margin-top: 5rem;
+  height: 30rem;
+  overflow: scroll;
+}
+
+@media (max-width:800px) {
+  .desktop-display {
+    display: none;
+  }
+  .container-desktop {
+    background-color: #eee;
+    margin-top: 5rem;
+    height: 30rem;
+    overflow: scroll;
+  }
+
+  .mobile-display {
+    display: block
+  }
+  
+}
+
+.container-desktop::-webkit-scrollbar {
+  display: none;
+}
+
+ /*Hide scrollbar for IE, Edge and Firefox*/
+.container-desktop {
+  -ms-overflow-style: none;
+  /*IE and Edge scrollbar-width: none;
+  Firefox*/
+}
+.container-desktop::-webkit-scrollbar {
+  display: none;
+}
+.container-desktop {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

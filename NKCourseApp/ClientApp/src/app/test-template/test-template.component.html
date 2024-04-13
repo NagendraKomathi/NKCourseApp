@@ -1,0 +1,82 @@
+<div class="container desktop-display" style="padding-top: 5rem; max-width: 100%;padding-left: 5rem;">
+  <div class="row">
+    <div class="col-12">
+        <div id="accordion">
+          <div class="card" *ngFor="let item of topics; let i = index;">
+            <div class="card-header">
+              <b style="color:green">
+                <a class="btn" data-bs-toggle="collapse" href="#collapse{{item.title}}">
+                  {{ item.title }}
+                </a>
+              </b>
+            </div>
+            <div id="collapse{{item.title}}" class="collapse {{item.isShow}}" data-bs-parent="#accordion">
+              <div class="card-body">
+                <ul style="list-style-type: none;cursor:pointer;">
+                  <li (click)="InstructionPopup(item.title,te.name)" style="padding-top: 10px" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngFor="let te of item.test"> {{te.name}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container mobile-display" style="padding-top: 5rem; max-width: 100%;padding-left: 10px;">
+  <div class="row">
+    <div class="col-12">
+      <div id="accordion">
+        <div class="card" *ngFor="let item of topics; let i = index;">
+          <div class="card-header">
+            <b style="color:green">
+              <a class="btn" data-bs-toggle="collapse" href="#collapse{{item.title}}">
+                {{ item.title }}
+              </a>
+            </b>
+          </div>
+          <div id="collapse{{item.title}}" class="collapse {{item.isShow}}" data-bs-parent="#accordion">
+            <div class="card-body">
+              <ul style="list-style-type: none;cursor:pointer;">
+                <li (click)="InstructionPopup(item.title,te.name)" style="padding-top: 10px" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngFor="let te of item.test"> {{te.name}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel" style="font-style:italic" >{{header}}</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              {{topic}} objectives and Q&A
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <ul>
+                <li>There are 20 questions.</li>
+                <li>Each Answer of question get 1 mark.</li>
+                <li>Timer started after click on start test for 30min to complete test.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" [routerLink]="['/testmaintemplate']" class="btn btn-primary">Start Test</button>
+      </div>
+    </div>
+  </div>
+</div>

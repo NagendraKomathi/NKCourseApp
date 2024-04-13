@@ -1,0 +1,178 @@
+<div class="container-fluid py-5 h-100 bgImage desktop">
+  <div class="container" style="max-width: 100%;padding-left: 5rem;">
+    <form action="action_page.php">
+      <div class="row">
+        <div class="col">
+          <label style="float:right;color:green">Total Questions Added : {{ totalQuestion }}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">Topic</label>
+        </div>
+        <div class="col">
+          <select id="country" [(ngModel)]="topicSelection" name="country" (change)="topicChange($event.target)" class="form-control">
+            <option value="0">--Select Topic--</option>
+            <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
+          </select>
+        </div>
+        <div class="col">
+          <select id="country" [(ngModel)]="testSelection" name="country" (change)="testChange($event.target)" class="form-control">
+            <option value="0">--Select Test--</option>
+            <option value="1">Test 1</option>
+            <option value="2">Test 2</option>
+            <option value="3">Test 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Question</label>
+        </div>
+        <div class="col-75">
+          <textarea style="word-wrap: break-word; height:20rem;" [(ngModel)]="textAreaValue" id="subject" (change)="doTextareaValueChange($event)" name="subject" placeholder="Write something.." style="height:200px">{{questionText}}</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Option Type</label>
+        </div>
+        <div class="col-75" style="padding-top:1%">
+          <div class="row cust-grid">
+            <div class="col">
+              <input [(ngModel)]="option" value="1" (click)="open('Radio Button Options', '1', 'radio')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Radio
+            </div>
+            <div class="col">
+              <input [(ngModel)]="option" value="2" (click)="open('Check Box Button Options', '2','checkbox')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Checbox
+            </div>
+            <div class="col">
+              <input [(ngModel)]="option" value="3" (click)="open('Areabox','3','Areabox')" data-bs-toggle="modal" data-bs-target="#areaboxModalToggle" type="radio" name="option" /> Areabox
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container-fluid py-5 h-100 bgImage mobile">
+  <div class="container">
+    <form action="action_page.php">
+      <div class="row">
+        <div class="col">
+          <label style="float:right;color:green">Total Questions Added : {{ totalQuestion }}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">Topic</label>
+        </div>
+        <div class="col-12">
+          <select id="country" [(ngModel)]="topicSelection" name="country" (change)="topicChange($event.target)" class="form-control">
+            <option value="0">--Select Topic--</option>
+            <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <select id="country" [(ngModel)]="testSelection" name="country" (change)="testChange($event.target)" class="form-control">
+            <option value="0">--Select Test--</option>
+            <option value="1">Test 1</option>
+            <option value="2">Test 2</option>
+            <option value="3">Test 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Question</label>
+        </div>
+        <div class="col-75">
+          <textarea style="word-wrap: break-word; height:20rem;" [(ngModel)]="textAreaValue" id="subject" (change)="doTextareaValueChange($event)" name="subject" placeholder="Write something.." style="height:200px">{{questionText}}</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Option Type</label>
+        </div>
+        <div class="col-75" style="padding-top:1%">
+          <div class="row cust-grid">
+            <div class="col-12">
+              <input [(ngModel)]="option" value="1" (click)="open('Radio Button Options', '1', 'radio')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Radio
+            </div>
+            <div class="col-12">
+              <input [(ngModel)]="option" value="2" (click)="open('Check Box Button Options', '2','checkbox')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Checbox
+            </div>
+            <div class="col-12">
+              <input [(ngModel)]="option" value="3" (click)="open('Areabox','3','Areabox')" data-bs-toggle="modal" data-bs-target="#areaboxModalToggle" type="radio" name="option" /> Areabox
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">{{header}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="padding-left: 5%; padding-right: 5%; ">
+          <button *ngIf="listOption.length != 4" class="btn btn-primary" style="width: 100%;" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Add</button>
+          <div class="card lOption">
+            <ol class="rounded-list" style="padding: 5px;">
+              <li *ngFor="let item of listOption; let i = index">
+                <label class="container-{{ inputType }}">
+                  <input id="optionRadio" type="{{ inputType }}" name="{{ inputType }}" (click)="selAnswer(i)">
+                  <span class="checkmark-{{ inputType }}"></span>
+                </label>
+                <a style="float: left; width: 90%;" (click)="removeOption(i)">{{item.option}}</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="listOption.length == 4" class="modal-footer">
+        <button class="btn btn-success" (click)="SaveQuestion()" data-bs-dismiss="modal" style="width: 100%;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add Option List</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea id="subject" style="word-wrap: break-word; height:20rem;" (change)="optionValueChange($event)" name="subject" placeholder="Write something..">{{optionText}}</textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-dismiss="modal" (click)="addOptions()" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Option</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="areaboxModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add Option List</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label>Please submit to save areabox for this question.</label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" (click)="SaveQuestion()" data-bs-dismiss="modal" style="width: 100%;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

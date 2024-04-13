@@ -1,0 +1,39 @@
+<div class="container-fluid py-5 h-100 bgImage">
+  <div class="row d-flex justify-content-center align-items-center h-100" style="padding-bottom: 5rem; padding-top: 2rem;">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <h3 class="CardHeading">Candidate Login</h3>
+          <form [formGroup]="candidateForm" (ngSubmit)="onSubmit()">
+            <div class="form-outline mb-4">
+              <input type="text" placeholder="Email id" formControlName="emailid" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" id="typeEmailX-2" class="form-control" />
+              <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+                <div style="float:left" *ngIf="f.emailid.errors.required">Emailid is required</div>
+              </div>
+              <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+                <div style="float:left" *ngIf="f.emailid.errors.email">Emailid is not valid</div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="text" placeholder="Phone Numebr" formControlName="phonenumber" id="typePasswordX-2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" />
+              <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                <div style="float:left" *ngIf="f.phonenumber.errors.required">PhoneNumber is required</div>
+              </div>
+              <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                <div style="float:left" *ngIf="f.phonenumber.errors.minlength || f.phonenumber.errors.maxlength">PhoneNumber is not valid</div>
+              </div>
+            </div><br/>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          </form>
+          <br />
+          <br />
+          <P id="ifLogin">
+            <b>
+                If you are admin please <a [routerLink]="['/']">login</a> here
+            </b>
+          </P>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

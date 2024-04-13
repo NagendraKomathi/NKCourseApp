@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 8px 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0px 4px;
+}
+
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.card {
+  padding: 2rem;
+  border: none;
+  background-color: white;
+}
+.cardDiv {
+  overflow-y: scroll;
+  height: 80%;
+  margin-top: 4rem;
+  /*border-style: inset;*/
+}
+.cardDiv::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.cardDiv {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.card-img-top {
+  border-radius: 3rem;
+  width: 250px;
+  height: 200px;
+}
+.mobile-display {
+  display: none;
+  border: none;
+}
+
+.desktop-display {
+  display: block;
+  border: none;
+}
+
+@media (max-width:800px) {
+  .desktop-display {
+    display: none;
+  }
+
+  .mobile-display {
+    display: block
+  }
+}

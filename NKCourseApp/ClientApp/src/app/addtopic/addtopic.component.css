@@ -1,0 +1,386 @@
+#ifCandidate {
+  margin-left: 100px;
+  font-family: Verdana, sans-serif;
+  font-size: 8px;
+  font-weight: 100;
+  text-align: justify;
+}
+
+#REGISTER {
+  margin-left: 100px;
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 100;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0,5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fiels {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+}
+.cust-grid {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+/*.row {
+  padding-top: 2rem
+}*/
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  float:left;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  /*padding: 20px;*/
+  margin-top: 2rem;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+ol {
+  counter-reset: li; /* Initiate a counter */
+  list-style: none; /* Remove default numbering */
+  *list-style: decimal; /* Keep using default numbering for IE6/7 */
+  font: 15px 'trebuchet MS', 'lucida sans';
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  padding-left: 0px;
+  /*padding-right: 20px;*/
+}
+
+  ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+  }
+.rounded-list a {
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: .5em 0;
+  background: #ddd;
+  color: #444;
+  text-decoration: none;
+  /*border-radius: .3em;
+  transition: all .3s ease-out;*/
+}
+
+  .rounded-list a:hover {
+    background: #eee;
+  }
+
+    /*.rounded-list a:hover:before {
+      transform: rotate(360deg);
+    }
+*/
+  .rounded-list a:before {
+    /*content: counter(li);*/
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+  }
+.clear-input-button {
+  /* button position */
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 0;
+  /* button appearane */
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+  background: gray;
+  margin: 0;
+  padding: 2px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  /* hide the button initially */
+  display: none;
+}
+
+ol.rounded-list li a:hover:after {
+  position: absolute;
+  line-height: 22px;
+  font-size: 18px;
+  text-align: right;
+  padding-right: 8px;
+  content: "×";
+  width: 20px;
+  height: 100%;
+  right: 0;
+  top: 4px;
+  color: #999;
+}
+li {
+    white-space: pre;
+}
+.lOption {
+  height: 20rem;
+  overflow: scroll;
+}
+  .lOption::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.lOption {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+.container-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-right: 0;
+  padding-left: 30px;
+}
+.container-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-right: 0;
+  padding-left: 30px;
+}
+
+  /* Hide the browser's default radio button */
+  .container-radio #optionRadio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+.container-checkbox #optionRadio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark-radio {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container-radio:hover #optionRadio ~ .checkmark-radio {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container-radio #optionRadio:checked ~ .checkmark-radio {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container-radio #optionRadio:checked ~ .checkmark-radio:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container-radio .checkmark-radio:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/*checkbox */
+
+.checkmark-checkbox {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  /*border-radius: 50%;*/
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover #optionRadio ~ .checkmark-checkbox {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container-checkbox #optionRadio:checked ~ .checkmark-checkbox {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark-checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container-checkbox #optionRadio:checked ~ .checkmark-checkbox:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container-checkbox .checkmark-checkbox:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  /*border-radius: 100%;*/
+  background: white;
+}
+
+
+
+@media (max-width:800px) {
+  .desktop {
+    display: none;
+  }
+
+  #topicSel option {
+    width: 1rem;
+  }
+
+  .container {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+    .container::-webkit-scrollbar {
+      display: none;
+    }
+
+  label {
+    padding: 5px 5px 5px 0;
+  }
+
+  div {
+    padding-top: 5px;
+  }
+
+  section {
+    background-color: #eee;
+    margin-top: 3rem;
+    height: 90%;
+    overflow: scroll;
+  }
+
+  .mobile {
+    display: block
+  }
+}

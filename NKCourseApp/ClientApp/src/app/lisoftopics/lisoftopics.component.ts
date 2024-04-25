@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AddTopic } from '../../models/addTopic';
 import { AddtopicComponent } from '../addtopic/addtopic.component';
@@ -28,6 +28,8 @@ export class LisoftopicsComponent implements OnInit {
   QuestionNo!: any;
   inputType!: any;
   selectIndex!: any;
+  testSelection: any = 0;
+  selectedTest!: any;
 
   constructor(public modalService: DialogService, public toaster: ToastrService, public dialogRef: MatDialogRef<AddtopicComponent>, public appService: AppService) { }
 
@@ -37,10 +39,9 @@ export class LisoftopicsComponent implements OnInit {
   }
 
   getQiestion() {
-    if (this.topicSelection != 0 && this.QuestionNo != undefined && this.QuestionNo != "") {
-      this.appService.GetQuestion(this.topicSelection, this.QuestionNo).subscribe({
+    if (this.topicSelection != 0 && this.QuestionNo != undefined && this.QuestionNo != "" && this.selectedTest != 0) {
+      this.appService.GetQuestion(this.topicSelection, this.QuestionNo, this.selectedTest).subscribe({
         next: (res) => {
-          debugger;
           if (res == null) {
             this.toaster.error('Question is not available', 'No Data Found!');
             return;
@@ -65,10 +66,13 @@ export class LisoftopicsComponent implements OnInit {
     }
   }
 
+  testChange(index: any) {
+    this.selectedTest = index.value;
+  }
+
   getAllTopics() {
     this.appService.GetAllTopics().subscribe({
       next: (res) => {
-        debugger;
         this.topics = res;
       },
       error: (err) => {
@@ -81,7 +85,6 @@ export class LisoftopicsComponent implements OnInit {
   }
 
   topicChange(index: any) {
-    debugger;
     this.selectedTopic = index.value;
   }
 
@@ -103,7 +106,6 @@ export class LisoftopicsComponent implements OnInit {
     this.listOption.push(this.optionText);
   }
   UpdateQuestion() {
-    debugger;
     var addTopic = new AddTopic();
     for (var i = 0; i < this.listOption.length; i++) {
       this.listOption[i].answer = false;
@@ -117,7 +119,6 @@ export class LisoftopicsComponent implements OnInit {
 
     this.appService.UpdateQueAndType(addTopic).subscribe({
       next: (res) => {
-        debugger;
         this.listOption = [];
         this.optionType = 0;
         this.textAreaValue = null;
@@ -140,7 +141,6 @@ export class LisoftopicsComponent implements OnInit {
   }
 
   DeleteQuestion() {
-    alert("AS");
     this.appService.DeleteQuestion(this.QuestionNo).subscribe({
       next: (res) => {
 
@@ -152,12 +152,10 @@ export class LisoftopicsComponent implements OnInit {
   }
 
   removeOption(index: any) {
-    alert(index)
     this.listOption.splice(index, 1);
   }
 
   open(header: any, type: string) {
-    debugger;
     this.header = header;
     this.optionType = parseInt(type);
     this.option = type;

@@ -53,8 +53,8 @@ export class AppService {
     return this.http.get<any>(this.baseUrl + "/api/Question/DeleteQuestion?QuestionNo=" + questionNo);
   }
 
-  GetQuestion(selectedTopic: any, questionNo: number) {
-    return this.http.get<any>(this.baseUrl + "/api/Question/GetQuestion?selectedTopic=" + selectedTopic + "&QuestionNo=" + questionNo );
+  GetQuestion(selectedTopic: any, questionNo: number, selectedTest: any) {
+    return this.http.get<any>(this.baseUrl + "/api/Question/GetQuestion?selectedTopic=" + selectedTopic + "&QuestionNo=" + questionNo + "&selectedTest=" + selectedTest );
   }
 
 }

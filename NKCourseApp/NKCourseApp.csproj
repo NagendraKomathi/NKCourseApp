@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -39,8 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\guards\prevent-unsaved-changes.guard.ts" />
     <None Remove="ClientApp\src\app\http-interceptors\auth-header-interceptor.ts" />
     <None Remove="ClientApp\src\app\http-interceptors\index.ts" />
+    <None Remove="ClientApp\src\assets\models\tiny_face_detector_model-weights_manifest.json" />
     <None Remove="ClientApp\src\assets\utility\toastr.abstract.ts" />
     <None Remove="ClientApp\src\models\addTopic.ts" />
     <None Remove="ClientApp\src\models\candidateLogin.ts" />
@@ -54,10 +56,16 @@
     <Content Include="ClientApp\src\assets\bell.jpg" />
     <Content Include="ClientApp\src\assets\cross.jpg" />
     <Content Include="ClientApp\src\assets\html.png" />
+    <Content Include="ClientApp\src\assets\models\tiny_face_detector_model-weights_manifest.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\src\assets\SittingPosition.png" />
     <Content Include="ClientApp\src\assets\times-solid.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\guards\prevent-unsaved-changes.guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\http-interceptors\auth-header-interceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\http-interceptors\index.ts" />
     <TypeScriptCompile Include="ClientApp\src\assets\utility\toastr.abstract.ts" />
@@ -65,10 +73,6 @@
     <TypeScriptCompile Include="ClientApp\src\models\candidateLogin.ts" />
     <TypeScriptCompile Include="ClientApp\src\models\login.ts" />
     <TypeScriptCompile Include="ClientApp\src\models\QueOption.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\guards\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

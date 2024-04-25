@@ -87,11 +87,11 @@ namespace NKCourseApp.Controllers
 
         [Route("GetQuestion")]
         [HttpGet]
-        public async Task<IActionResult> GetQuestion(string selectedTopic, int QuestionNo)
+        public async Task<IActionResult> GetQuestion(string selectedTopic, int QuestionNo, int selectedTest)
         {
             try
             {
-                var questions = await _services.GetQuestion(selectedTopic,QuestionNo);
+                var questions = await _services.GetQuestion(selectedTopic,QuestionNo,selectedTest);
 
                 if (questions == null)
                     return Ok(questions);

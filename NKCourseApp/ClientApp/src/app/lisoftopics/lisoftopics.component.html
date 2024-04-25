@@ -2,66 +2,90 @@
 <div class="container-fluid py-5 h-100 bgImage desktop">
   <div class="container" style="max-width: 100%; padding-left: 5rem;">
     <h4>Edit Or Delete</h4>
-      <div class="row">
-        <div class="col-25">
-          <label for="fname">Topic and Question No.<span style="color:red">*</span></label>
-        </div>
-        <div class="col-3">
-          <select id="country" [(ngModel)]="topicSelection" name="country" (change)="topicChange($event.target)" class="form-control">
-            <option value="0">--Select Topic--</option>
-            <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
-          </select>
-        </div>
-        <div class="col-2">
-          <input type="text" [(ngModel)]="QuestionNo" placeholder="Question No" class="form-control" />
-        </div>
-        <div class="col-2">
-          <input type="button" class="btn btn-success form-control" (click)="getQiestion()" style="height: 88%;" value="Get Question" />
-        </div>
-        <div class="col-2">
-          <input type="button" class="btn btn-danger form-control" (click)="DeleteQuestion()" style="height: 88%;" value="Delete" />
-        </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Topic <span style="color:red">*</span></label>
       </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="subject">Question</label>
-        </div>
-        <div class="col-75">
-          <textarea style="word-wrap: break-word; height: 20rem; height: 200px" [(ngModel)]="textAreaValue" id="subject" (change)="doTextareaValueChange($event)" name="subject" placeholder="Write something..">{{questionText}}</textarea>
-        </div>
+      <div class="col-75">
+        <select id="country" [(ngModel)]="topicSelection" name="country" (change)="topicChange($event.target)" class="form-control">
+          <option value="0">--Select Topic--</option>
+          <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
+        </select>
       </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="subject">Option Type</label>
-        </div>
-        <div class="col-75" style="padding-top:1%">
-          <div class="row cust-grid">
-            <div class="col">
-              <input [(ngModel)]="option" value="1" (click)="open('Radio Button Options', '1')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Radio
-            </div>
-            <div class="col">
-              <input [(ngModel)]="option" value="2" (click)="open('Check Box Button Options', '2')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Checbox
-            </div>
-            <div class="col">
-              <input [(ngModel)]="option" value="3" (click)="open('Areabox','3')" data-bs-toggle="modal" data-bs-target="#areaboxModalToggle" type="radio" name="option" /> Areabox
-            </div>
+    </div>
+    <div class="row" style="padding-top:10px">
+      <div class="col-25">
+        <label for="fname">Test and Question No.<span style="color:red">*</span></label>
+      </div>
+      <div class="col-3">
+        <select id="country" [(ngModel)]="testSelection" name="country" (change)="testChange($event.target)" class="form-control">
+          <option value="0">--Select Test--</option>
+          <option value="1">Test 1</option>
+          <option value="2">Test 2</option>
+          <option value="3">Test 3</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <input type="text" [(ngModel)]="QuestionNo" placeholder="Question No" class="form-control" />
+      </div>
+      <div class="col-2">
+        <input type="button" class="btn btn-success form-control" (click)="getQiestion()" style="height: 88%;" value="Get Question" />
+      </div>
+      <div class="col-2">
+        <input type="button" class="btn btn-danger form-control" (click)="DeleteQuestion()" style="height: 88%;" value="Delete" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Question</label>
+      </div>
+      <div class="col-75">
+        <textarea style="word-wrap: break-word; height: 20rem; height: 200px" [(ngModel)]="textAreaValue" id="subject" (change)="doTextareaValueChange($event)" name="subject" placeholder="Write something..">{{questionText}}</textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Option Type</label>
+      </div>
+      <div class="col-75" style="padding-top:1%">
+        <div class="row cust-grid">
+          <div class="col">
+            <input [(ngModel)]="option" value="1" (click)="open('Radio Button Options', '1')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Radio
+          </div>
+          <div class="col">
+            <input [(ngModel)]="option" value="2" (click)="open('Check Box Button Options', '2')" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" type="radio" name="option" /> Checbox
+          </div>
+          <div class="col">
+            <input [(ngModel)]="option" value="3" (click)="open('Areabox','3')" data-bs-toggle="modal" data-bs-target="#areaboxModalToggle" type="radio" name="option" /> Areabox
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
 <div class="container-fluid py-5 h-100 bgImage mobile">
   <div class="container">
     <h4>Edit Or Delete</h4>
+    <div class="col-25">
+      <label for="subject">Topic <span style="color:red">*</span></label>
+    </div>
+    <div class="col-75">
+      <select id="country" [(ngModel)]="topicSelection" name="country" (change)="topicChange($event.target)" class="form-control">
+        <option value="0">--Select Topic--</option>
+        <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
+      </select>
+    </div>
     <div class="row">
       <div class="col-25">
         <label for="fname">Topic and Question No.</label>
       </div>
       <div class="col-12">
-        <select id="topicSel" [(ngModel)]="topicSelection" name="topicSel" (change)="topicChange($event.target)" class="form-control">
-          <option value="0">--Select Topic--</option>
-          <option *ngFor="let item of topics" [value]="item.id">{{item.title}}</option>
+        <select id="country" [(ngModel)]="testSelection" name="country" (change)="testChange($event.target)" class="form-control">
+          <option value="0">--Select Test--</option>
+          <option value="1">Test 1</option>
+          <option value="2">Test 2</option>
+          <option value="3">Test 3</option>
         </select>
       </div>
       <div class="col-12">

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
 import { AddTopic } from '../../models/addTopic';
 import { QueOption } from '../../models/QueOption';
@@ -31,7 +30,7 @@ export class AddtopicComponent implements OnInit {
 
   textAreaValue: any = null;
 
-  constructor(public modalService: DialogService, public toaster: ToastrService, public dialogRef: MatDialogRef<AddtopicComponent>, public appService: AppService) { }
+  constructor(public modalService: DialogService, public toaster: ToastrService, public appService: AppService) { }
 
   ngOnInit() {
     this.bodyText = 'This text can be updated in modal 1';
@@ -86,7 +85,6 @@ export class AddtopicComponent implements OnInit {
     this.listOption.push(opt);
   }
   SaveQuestion() {
-    debugger;
     var addTopic = new AddTopic();
     this.listOption[this.selectIndex].answer = true;
     addTopic.options = this.listOption;
@@ -96,7 +94,6 @@ export class AddtopicComponent implements OnInit {
 
     this.appService.InsertQueAndType(addTopic, this.selectedTest).subscribe({
       next: (res) => {
-        debugger;
         this.listOption = [];
         this.optionType = 0;
         this.textAreaValue = null;
@@ -122,7 +119,6 @@ export class AddtopicComponent implements OnInit {
   }
 
   open(header: any, type: string, input: string) {
-    debugger;
     this.listOption = [];
     this.inputType = input;
     this.header = header;

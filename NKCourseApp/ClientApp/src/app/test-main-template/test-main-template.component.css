@@ -22,3 +22,13 @@
     padding-left:10px;
     padding-right:10px;
 }
+.page-wrap {
+  min-height: 100vh;
+}
+
+.videoRecord {
+  position: fixed;
+  bottom: 0px;
+  right: 0;
+
+}

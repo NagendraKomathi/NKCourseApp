@@ -1,175 +1,219 @@
-<div class="desktop-display" style="padding-top: 2rem;padding-left: 10px;padding-right: 10px">
-  <div class="container" style="border: groove">
-    <div class="row" style="padding-top: 21px;">
-      <div class="col-3">
-        <div class="row">
-          <div class="col">
-            Candidate
+<div id="SamePage1" *ngIf="!isPageLoad">
+  <div class="desktop-display" style="padding-top: 2rem;padding-left: 10px;padding-right: 10px">
+    <div class="container" style="border: groove">
+      <div class="row" style="padding-top: 21px;">
+        <div class="col-3">
+          <div class="row">
+            <div class="col">
+              Candidate
+            </div>
+            <div class="col">
+              : {{username}}
+            </div>
           </div>
-          <div class="col">
-            : {{username}}
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <div class="col-10">
+              <label style="float:right">Timer</label>
+            </div>
+            <div class="col">
+              : {{display}}
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-9">
-        <div class="row">
-          <div class="col-10">
-            <label style="float:right">Timer</label>
-          </div>
-          <div class="col">
-            : {{display}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <div class="row">
-          <div class="col">
-            Topic
-          </div>
-          <div class="col">
-            : HTML
+      <div class="row">
+        <div class="col-3">
+          <div class="row">
+            <div class="col">
+              Topic
+            </div>
+            <div class="col">
+              : HTML
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <div class="row">
-          <div class="col">
-            Total Questions
-          </div>
-          <div class="col">
-            : 20
+      <div class="row">
+        <div class="col-3">
+          <div class="row">
+            <div class="col">
+              Total Questions
+            </div>
+            <div class="col">
+              : 20
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row" style="padding-bottom:10px">
-      <div class="col-3">
-        <div class="row">
-          <div class="col">
-            Total Marks
-          </div>
-          <div class="col">
-            : 20
+      <div class="row" style="padding-bottom:10px">
+        <div class="col-3">
+          <div class="row">
+            <div class="col">
+              Total Marks
+            </div>
+            <div class="col">
+              : 20
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="desktop-display" style="padding-top: 10px;padding-left: 10px;padding-right: 10px">
-  <div class="container" style="border: groove">
-    <div class="row" style="padding-top: 21px;">
-      <div class="col-10" style="text-align:right">
-        Candidate :
+  <div class="desktop-display" style="padding-top: 10px;padding-left: 10px;padding-right: 10px">
+    <div class="container" style="border: groove">
+      <div class="row" style="padding-top: 21px;">
+        <div class="col-10" style="text-align:right">
+          Candidate :
+        </div>
+        <div class="col">
+          {{username}}
+        </div>
       </div>
-      <div class="col">
-        {{username}}
+      <div class="row">
+        <div class="col-10" style="text-align:right">
+          Topic :
+        </div>
+        <div class="col">
+          HTML
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10" style="text-align:right">
+          Total Questions :
+        </div>
+        <div class="col">
+          20
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10" style="text-align:right">
+          Total Marks :
+        </div>
+        <div class="col" style="padding-bottom:1rem">
+          20
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-10" style="text-align:right">
-        Topic :
+  </div>
+
+
+  <div class="mobile-display" style="padding-top: 4rem; padding-left: 10px; padding-right: 10px">
+    <div class="container" style="border:solid">
+      <div class="row" style="padding-top: 21px;">
+        <div class="col-6" style="text-align:right">
+          Candidate :
+        </div>
+        <div class="col">
+          {{username}}
+        </div>
       </div>
-      <div class="col">
-        HTML
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Topic :
+        </div>
+        <div class="col">
+          HTML
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Total Questions :
+        </div>
+        <div class="col">
+          20
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Total Marks :
+        </div>
+        <div class="col" style="padding-bottom:1rem">
+          20
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-10" style="text-align:right">
-        Total Questions :
+  </div>
+  <div class="mobile-display" style="padding-top: 10px; padding-left: 10px; padding-right: 10px">
+    <div class="container" style="border:solid">
+      <div class="row" style="padding-top: 21px">
+        <div class="col-6" style="text-align:right">
+          Candidate :
+        </div>
+        <div class="col">
+          {{username}}
+        </div>
       </div>
-      <div class="col">
-        20
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Topic :
+        </div>
+        <div class="col">
+          HTML
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Total Questions :
+        </div>
+        <div class="col">
+          20
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" style="text-align:right">
+          Total Marks :
+        </div>
+        <div class="col" style="padding-bottom:1rem">
+          20
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-10" style="text-align:right">
-        Total Marks :
-      </div>
-      <div class="col" style="padding-bottom:1rem">
-        20
+  </div>
+  <button id="openModalButton" [hidden]="true" data-bs-toggle="modal" data-bs-target="#exampleModal">Open Modal</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <ul>
+                <li>There are 20 questions.</li>
+                <li>Each Answer of question get 1 mark.</li>
+                <li>Timer started after click on start test for 30min to complete test.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="mobile-display" style="padding-top: 4rem; padding-left: 10px; padding-right: 10px">
-  <div class="container" style="border:solid">
-    <div class="row" style="padding-top: 21px;">
-      <div class="col-6" style="text-align:right">
-        Candidate :
-      </div>
-      <div class="col">
-        {{username}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Topic :
-      </div>
-      <div class="col">
-        HTML
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Total Questions :
-      </div>
-      <div class="col">
-        20
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Total Marks :
-      </div>
-      <div class="col" style="padding-bottom:1rem">
-        20
+<div id="SamePage2" class="videoRecord" *ngIf="!isPageLoad">
+  <video id="myVideo" class="video" style="width: 30vh !important;height: 20vh !important;" #video autoplay></video>
+</div>
+
+<div id="PageChanged" *ngIf="isPageLoad">
+  <div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+          <span class="display-1 d-block">403</span>
+          <div class="mb-4 lead">You are not allowed to enter here</div>
+          <a id="goToHome" href="" class="btn btn-link">Back to Home</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="mobile-display" style="padding-top: 10px; padding-left: 10px; padding-right: 10px">
-  <div class="container" style="border:solid">
-    <div class="row" style="padding-top: 21px">
-      <div class="col-6" style="text-align:right">
-        Candidate :
-      </div>
-      <div class="col">
-        {{username}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Topic :
-      </div>
-      <div class="col">
-        HTML
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Total Questions :
-      </div>
-      <div class="col">
-        20
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6" style="text-align:right">
-        Total Marks :
-      </div>
-      <div class="col" style="padding-bottom:1rem">
-        20
-      </div>
-    </div>
-  </div>
-</div>
-
-
-

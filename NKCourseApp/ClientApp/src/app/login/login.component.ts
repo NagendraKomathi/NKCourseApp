@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   placeholderTitle = 'Enter toastr title';
   placeholderMsg = 'Enter message';
   showPassword: boolean = false;
+  username!: string | null;
 
 
   loginForm!: FormGroup;
@@ -31,9 +32,14 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private loginModel: Login, private spinnerService: NgxSpinnerService, private appService: AppService,
     private router: Router, private service: SpinnerService, public toaster: ToastrService, public auth: AuthGuardService) {
+
+    
+
   }
 
   ngOnInit(): void {
+    this.username = localStorage.getItem("username");
+    if (this.username != null) { this.router.navigate(['dashboard']); }
     this.loginForm = this.formBuilder.group({
       emailid: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -61,7 +67,6 @@ export class LoginComponent implements OnInit {
           this.showSuccess();
         },
         error: (err) => {
-          debugger;
           this.invalidLogin = true;
           this.showError();
         }

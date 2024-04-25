@@ -37,11 +37,10 @@ export class NavMenuComponent implements OnInit {
   }
 
   logout() {
-    debugger;
     localStorage.removeItem('jwt');
     localStorage.removeItem('username');
     this.auth.isLoggedIn = false;
-    this.route.navigate(['login']);
+    this.route.navigate(['']);
   }
 
 }

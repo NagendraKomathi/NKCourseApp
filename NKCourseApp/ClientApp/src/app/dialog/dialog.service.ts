@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogTemplateComponent } from '../dialog-template/dialog-template.component';
 
 @Injectable({
@@ -13,8 +13,6 @@ export class DialogService {
   private modals: any[] = [];
 
   add(modal: any) {
-    debugger;
-    alert("asdasda")
     // add modal to array of active modals
     this.modals.push(modal);
   }
@@ -32,7 +30,6 @@ export class DialogService {
 
   close(id: string) {
     // close modal specified by id
-    debugger;
     let modal: any = this.modals.filter(x => x.id === id)[0];
     modal.close();
   }

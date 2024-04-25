@@ -11,7 +11,7 @@ namespace NKCourseApp.Services
         public Task<string> AddTopics(Repository.Entities.AddTopic addTopic, QueOption[]? options, int selectedTest);
         public Task<string> UpdateTopics(Repository.Entities.AddTopic addTopic, QueOption[]? options);
         public Task<string> DeleteQuestion(int QuestionNo);
-        public Task<ListOfQuestions> GetQuestion(string selectedTopic, int QuestionNo);
+        public Task<ListOfQuestions> GetQuestion(string selectedTopic, int QuestionNo, int selectedTest);
         public Task<int> GetQuestionCount(int selectedTopic, int selectedTest);
         
     }

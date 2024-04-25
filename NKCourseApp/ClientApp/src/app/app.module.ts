@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { JwtModule } from '@auth0/angular-jwt';
-import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { CandidateComponent } from './candidate/candidate.component';
+  import { NgModule } from '@angular/core';
+  import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+  import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+  import { RouterModule } from '@angular/router';
+  import { JwtModule } from '@auth0/angular-jwt';
+  import { AppComponent } from './app.component';
+  import { NavMenuComponent } from './nav-menu/nav-menu.component';
+  import { HomeComponent } from './home/home.component';
+  import { CounterComponent } from './counter/counter.component';
+  import { FetchDataComponent } from './fetch-data/fetch-data.component';
+  import { CandidateComponent } from './candidate/candidate.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -27,8 +27,6 @@ import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LisoftopicsComponent } from './lisoftopics/lisoftopics.component';
-import { MatButtonModule, MatInputModule, MatIconModule, MatDialogModule, MatDialogRef } from '@angular/material';
-import { DialogService } from './dialog/dialog.service';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
 import { CommonModule } from '@angular/common';
 import { PortalModule } from '@angular/cdk/portal';
@@ -36,6 +34,13 @@ import { PopupTestComponent } from './popup-test/popup-test.component';
 import { TestTemplateComponent } from './test-template/test-template.component';
 import { TestMainTemplateComponent } from './test-main-template/test-main-template.component';
 import { NavMenuService } from './nav-menu/nav-menu.service';
+import { PreventUnsaveChanges } from './guards/prevent-unsaved-changes.guard';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { DialogService } from './dialog/dialog.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -62,9 +67,10 @@ export function tokenGetter() {
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule,
+    //FormsModule,
     CommonModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
     MatButtonModule,
@@ -82,7 +88,7 @@ export function tokenGetter() {
     }),
     RouterModule.forRoot([
       { path: '', component: LoginComponent, pathMatch: 'full' },
-      { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+      //{ path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
       { path: 'candidate', component: CandidateComponent },
       //{ path: 'register', component: RegisterComponent },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
@@ -91,7 +97,7 @@ export function tokenGetter() {
       { path: 'listftopics', component: LisoftopicsComponent, canActivate: [AuthGuardService] },
       { path: 'popuptemplate', component: PopupTestComponent, canActivate: [AuthGuardService] },
       { path: 'testtemplate', component: TestTemplateComponent, canActivate: [AuthGuardService] },
-      { path: 'testmaintemplate', component: TestMainTemplateComponent, canActivate: [AuthGuardService] }
+      { path: 'testmaintemplate', component: TestMainTemplateComponent, canDeactivate: [PreventUnsaveChanges] }
     ]),
     JwtModule.forRoot({
       config: {
@@ -99,7 +105,7 @@ export function tokenGetter() {
         allowedDomains: [""],
         disallowedRoutes: []
       }
-    })
+    }),
   ],
   providers: [AppService, Login, AuthGuardService, SpinnerService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true },
@@ -108,7 +114,8 @@ export function tokenGetter() {
       {
         provide: MatDialogRef,
       useValue: {}
-    }, NavMenuService
+    }, NavMenuService,
+    PreventUnsaveChanges
   ],
   bootstrap: [AppComponent]
 })

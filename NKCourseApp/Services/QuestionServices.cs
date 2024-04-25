@@ -151,7 +151,7 @@ namespace NKCourseApp.Services
             });
             return result;
         }
-        public async Task<ListOfQuestions> GetQuestion(string selectedTopic,int QuestionNo)
+        public async Task<ListOfQuestions> GetQuestion(string selectedTopic,int QuestionNo, int selectedTest)
         {
             var addTopic = courseApp.AddTopics.Where(x => x.TopicId == Convert.ToInt32(selectedTopic) && x.TopicOrder == QuestionNo).FirstOrDefault()?.Id;
             var option = courseApp.Options.Where(x => x.AddTopicId == addTopic).Select(x => new { x.QueOption, x.Answer }).ToList();
@@ -172,6 +172,7 @@ namespace NKCourseApp.Services
                          join ot in courseApp.OptionTypes on at.OptionType equals ot.Id
                          join op in courseApp.Options on at.Id equals op.AddTopicId
                          where tp.Id == Convert.ToInt32(selectedTopic) && at.TopicOrder == QuestionNo
+                         && at.Test == selectedTest
                          select new ListOfQuestions
                          {
                              TopicId = at.TopicId.ToString(),
